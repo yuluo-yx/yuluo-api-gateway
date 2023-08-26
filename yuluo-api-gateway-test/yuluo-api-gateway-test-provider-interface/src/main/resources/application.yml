@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+dubbo:
+  application:
+    name: yuluo-api-gateway-test
+    version: 1.0.0
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20881
+  scan:
+    base-packages: indi.yuluo.gateway.rpc
