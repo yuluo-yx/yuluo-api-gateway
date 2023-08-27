@@ -8,7 +8,6 @@ import indi.yuluo.gateway.session.defaults.DefaultGatewaySessionFactory;
 import indi.yuluo.gateway.socket.BaseHandler;
 import indi.yuluo.gateway.util.DateTimeFormat;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
@@ -44,12 +43,15 @@ public class GatewayServerHandler extends BaseHandler<FullHttpRequest> {
 
 		// 返回信息控制，简单处理
 		String uri = request.uri();
-		if (uri.equals("favicon.ico")) {
+		if (uri.equals("/favicon.ico")) {
 			return;
 		}
 
-		GatewaySession gatewaySession = gatewaySessionFactory.openSession();
-		IGenericReference reference = gatewaySession.getMapper(uri);
+		/*
+		传递 uri，开启哪一个会话的 session 就和哪一个会话绑定。
+		 */
+		GatewaySession gatewaySession = gatewaySessionFactory.openSession(uri);
+		IGenericReference reference = gatewaySession.getMapper();
 
 		// 返回信息处理
 		DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
@@ -79,15 +81,15 @@ public class GatewayServerHandler extends BaseHandler<FullHttpRequest> {
 		headers.add(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT, DELETE");
 		headers.add(HttpHeaderNames.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
 
-		channel.writeAndFlush(response)
-				.addListener((ChannelFutureListener) channelFuture -> {
-					System.out.println("添加监听器---------------------------------");
-					if (channelFuture.isSuccess()) {
-						System.out.println("成功！------------------------");
-					} else {
-						System.out.println(channelFuture.toString());
-					}
-				});
+		channel.writeAndFlush(response);
+//				.addListener((ChannelFutureListener) channelFuture -> {
+//					System.out.println("添加监听器---------------------------------");
+//					if (channelFuture.isSuccess()) {
+//						System.out.println("成功！------------------------");
+//					} else {
+//						System.out.println(channelFuture.toString());
+//					}
+//				});
 	}
 
 
