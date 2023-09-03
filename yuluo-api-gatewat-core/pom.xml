@@ -16,6 +16,8 @@
 		<module>yuluo-api-gateway-core-02</module>
 		<module>yuluo-api-gateway-core-03</module>
 		<module>yuluo-api-gateway-core-04</module>
+		<module>yuluo-api-gateway-core-05</module>
+		<module>yuluo-api-gateway-core-06</module>
 	</modules>
 
 	<properties>
