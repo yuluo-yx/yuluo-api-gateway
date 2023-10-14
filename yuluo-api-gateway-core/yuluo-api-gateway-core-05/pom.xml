@@ -4,16 +4,13 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>indi.yuluo</groupId>
-	<artifactId>yuluo-api-gateway</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<parent>
+		<groupId>indi.yuluo</groupId>
+		<artifactId>yuluo-api-gateway-core</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
-	<modules>
-		<module>yuluo-api-gateway-core</module>
-		<module>yuluo-api-gateway-center</module>
-		<module>yuluo-api-gateway-test</module>
-	</modules>
+	<artifactId>yuluo-api-gateway-core-05</artifactId>
 
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
