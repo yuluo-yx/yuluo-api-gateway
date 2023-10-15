@@ -1,0 +1,19 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    username: root
+    password: '082916'
+    url: jdbc:mysql://127.0.0.1:3306/api-gateway?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: '082916'
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  config-location:  classpath:/config/mybatis-config.xml
+
