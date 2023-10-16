@@ -13,6 +13,7 @@
 		<module>yuluo-api-gateway-core</module>
 		<module>yuluo-api-gateway-center</module>
 		<module>yuluo-api-gateway-test</module>
+		<module>yuluo-api-gateway-assist</module>
 	</modules>
 
 	<properties>

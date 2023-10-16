@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/wg/admin/config")
 public class GatewayConfigManage {
 
 	private static final Logger logger = LoggerFactory.getLogger(GatewayConfigManage.class);
@@ -57,14 +57,14 @@ public class GatewayConfigManage {
 	}
 
 	/**
-	 * 注册网关服务节点
+	 * 注册网关算力服务节点
 	 * @param groupId			注册组
 	 * @param gatewayId			网关id
 	 * @param gatewayName		网关name
 	 * @param gatewayAddress	网关地址
 	 * @return					注册是否成功
 	 */
-	@PostMapping(value = "registryGateway")
+	@PostMapping(value = "registerGateway")
 	public Result<Boolean> registryGatewayServerNode(
 			@RequestParam String groupId,
 			@RequestParam String gatewayId,

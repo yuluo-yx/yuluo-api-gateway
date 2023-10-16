@@ -45,27 +45,95 @@ public class Configuration {
 	 */
 	private final Map<String, ReferenceConfig<GenericService>> referenceConfigMap = new HashMap<>();
 
+	// 网关 Netty 服务地址
+	private String hostName = "127.0.0.1";
+
+	// 网关 Netty 服务端口
+
+	private int port = 7397;
+
+	// 网关 Netty 服务线程数配置
+	private int bossNThreads = 1;
+
+	private int workNThreads = 4;
+
+	public String getHostName() {
+		return hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public int getBossNThreads() {
+		return bossNThreads;
+	}
+
+	public void setBossNThreads(int bossNThreads) {
+		this.bossNThreads = bossNThreads;
+	}
+
+	public int getWorkNThreads() {
+		return workNThreads;
+	}
+
+	public void setWorkNThreads(int workNThreads) {
+		this.workNThreads = workNThreads;
+	}
+
 	public Configuration() {
 
-		// TODO: 后期从配置中获取
-		ApplicationConfig application = new ApplicationConfig();
-		application.setName("yuluo-api-gateway-test");
-		application.setQosEnable(false);
-
-		RegistryConfig registry = new RegistryConfig();
-		registry.setAddress("zookeeper://127.0.0.1:2181");
-		registry.setRegister(false);
-
-		ReferenceConfig<GenericService> reference = new ReferenceConfig<>();
-		reference.setInterface("indi.yuluo.gateway.rpc.IActivityBooth");
-		reference.setVersion("1.0.0");
-		reference.setGeneric("true");
-
-		applicationConfigMap.put("yuluo-api-gateway-test", application);
-		registryConfigMap.put("yuluo-api-gateway-test", registry);
-		referenceConfigMap.put("indi.yuluo.gateway.rpc.IActivityBooth", reference);
+//		// TODO: 后期从配置中获取
+//		ApplicationConfig application = new ApplicationConfig();
+//		application.setName("yuluo-api-gateway-test");
+//		application.setQosEnable(false);
+//
+//		RegistryConfig registry = new RegistryConfig();
+//		registry.setAddress("zookeeper://127.0.0.1:2181");
+//		registry.setRegister(false);
+//
+//		ReferenceConfig<GenericService> reference = new ReferenceConfig<>();
+//		reference.setInterface("indi.yuluo.gateway.rpc.IActivityBooth");
+//		reference.setVersion("1.0.0");
+//		reference.setGeneric("true");
+//
+//		applicationConfigMap.put("yuluo-api-gateway-test", application);
+//		registryConfigMap.put("yuluo-api-gateway-test", registry);
+//		referenceConfigMap.put("indi.yuluo.gateway.rpc.IActivityBooth", reference);
 
 	}
+
+	public synchronized void registryConfig(String applicationName, String address, String interfaceName,
+			String version){
+		if (applicationConfigMap.get(applicationName) == null) {
+			ApplicationConfig application = new ApplicationConfig();
+			application.setName(applicationName);
+			application.setQosEnable(false);
+			applicationConfigMap.put(applicationName, application);
+		}
+		if (registryConfigMap.get(applicationName) == null) {
+			RegistryConfig registry = new RegistryConfig();
+			registry.setAddress(address);
+			registry.setRegister(false);
+			registryConfigMap.put(applicationName, registry);
+		}
+		if (referenceConfigMap.get(interfaceName) == null) {
+			ReferenceConfig<GenericService> reference = new ReferenceConfig<>();
+			reference.setInterface(interfaceName);
+			reference.setVersion(version);
+			reference.setGeneric("true");
+			referenceConfigMap.put(interfaceName, reference);
+		}
+	}
+
 
 	public void addMapper(HttpStatement httpStatement) {
 
