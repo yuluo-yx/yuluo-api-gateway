@@ -1,4 +1,4 @@
-package indi.yuluo.gateway.center.infrastructure.po;
+package indi.yuluo.gateway.center.domain.operation.model.vo;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import java.util.Date;
  * @author 1481556636@qq.com
  */
 
-public class GatewayDistribution {
+public class GatewayDistributionDataVO {
 
 	/** 自增主键 */
 	private Integer id;
@@ -29,6 +29,14 @@ public class GatewayDistribution {
 
 	/** 更新时间 */
 	private Date updateTime;
+
+	public GatewayDistributionDataVO() {
+	}
+
+	public GatewayDistributionDataVO(String groupId, String gatewayId) {
+		this.groupId = groupId;
+		this.gatewayId = gatewayId;
+	}
 
 	public Integer getId() {
 		return id;
@@ -85,6 +93,5 @@ public class GatewayDistribution {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-
 }
 

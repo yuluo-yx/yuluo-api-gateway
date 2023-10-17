@@ -1,53 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="indi.yuluo.gateway.center.infrastructure.dao.IGatewayDistributionDao">
+<mapper namespace="indi.yuluo.gateway.center.infrastructure.dao.IGatewayServerDao">
 
-	<resultMap id="gatewayDistributionMap" type="indi.yuluo.gateway.center.infrastructure.po.GatewayDistribution">
+	<resultMap id="gatewayServerMap" type="indi.yuluo.gateway.center.infrastructure.po.GatewayServer">
 		<id column="id" property="id"/>
 		<id column="group_id" property="groupId"/>
-		<id column="gateway_id" property="gatewayId"/>
-		<id column="system_id" property="systemId"/>
-		<id column="system_name" property="systemName"/>
-		<id column="create_time" property="createTime"/>
-		<id column="update_time" property="updateTime"/>
+		<id column="group_name" property="groupName"/>
 	</resultMap>
 
-	<select id="queryGatewayDistributionSystemIdList" resultType="java.lang.String">
-		SELECT system_id FROM gateway_distribution
-	</select>
-	<select id="queryGatewayDistribution" resultType="java.lang.String">
-		SELECT gateway_id FROM gateway_distribution WHERE system_id = #{systemId}
+	<select id="queryGatewayServerList" resultMap="gatewayServerMap">
+		SELECT id, group_id, group_name FROM gateway_server
 	</select>
 
-<!--	<select id="queryGatewayDistributionListByPage"
-			parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest"
-			resultMap="gatewayDistributionMap">
-		SELECT id, group_id, gateway_id, system_id, system_name, create_time, update_time
-		FROM gateway_distribution
+	<select id="queryGatewayServerListByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultMap="gatewayServerMap">
+		SELECT id, group_id, group_name FROM gateway_server
 		<where>
-			<if test="data != null and data.groupId != ''">
-				and group_id = #{data.groupId}
-			</if>
-			<if test="data != null and data.gatewayId != ''">
-				and gateway_id = #{data.gatewayId}
+			<if test="null != data">
+				and group_id = #{data}
 			</if>
 		</where>
 		order by id desc
 		limit #{pageStart},#{pageEnd}
-	</select>-->
+	</select>
 
-<!--	<select id="queryGatewayDistributionListCountByPage"
-			parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest"
-			resultType="java.lang.Integer">
-		SELECT count(id) FROM gateway_distribution
+	<select id="queryGatewayServerListCountByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultType="java.lang.Integer">
+		SELECT count(id) FROM gateway_server
 		<where>
-			<if test="data != null and data.groupId != ''">
-				and group_id = #{data.groupId}
-			</if>
-			<if test="data != null and data.gatewayId != ''">
-				and gateway_id = #{data.gatewayId}
+			<if test="null != data">
+				and group_id = #{data}
 			</if>
 		</where>
-	</select>-->
+	</select>
 
 </mapper>

@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import com.alibaba.fastjson.JSON;
 import indi.yuluo.gateway.center.YuluoApiGatewayApplication;
 import indi.yuluo.gateway.center.application.IConfigManageService;
+import indi.yuluo.gateway.center.domain.manage.model.aggregates.ApplicationSystemRichInfo;
 import indi.yuluo.gateway.center.domain.manage.model.vo.GatewayServerDetailVO;
 import indi.yuluo.gateway.center.domain.manage.model.vo.GatewayServerVO;
 import org.junit.Test;
@@ -66,6 +67,12 @@ public class ApiGatewayTest {
 				"电商配送网关",
 				"127.0.0.198"
 		);
+	}
+
+	@Test
+	public void test_queryApplicationSystemRichInfo() {
+		ApplicationSystemRichInfo info = configManageService.queryApplicationSystemRichInfo("api-gateway-g4");
+		System.out.println("测试结果：" + info);
 	}
 
 }
