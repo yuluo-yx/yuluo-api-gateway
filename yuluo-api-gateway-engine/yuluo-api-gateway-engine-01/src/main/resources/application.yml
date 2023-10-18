@@ -1,0 +1,14 @@
+server:
+  port: 8006
+
+api-gateway:
+  # 注册中心，从这里获取接口信息以及完成注册网关操作
+  address: http://127.0.0.1:2181
+  # 网关分组标识，每一个网关通信组件都分配一个对应的分组
+  group-id: 10001
+  # 网管标识
+  gateway-id: api-gateway-g4a
+  # 网关名称
+  gateway-name: 电商配送网关
+  # 网关服务地址，网关的通信服务 netty 启动使用的 IP 和 端口
+  gateway-address: 127.0.0.1:8001

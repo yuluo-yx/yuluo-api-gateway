@@ -11,6 +11,8 @@
 		<relativePath/>
 	</parent>
 
+	<groupId>indi.yuluo.gateway</groupId>
+	<version>2023.10.18</version>
 	<artifactId>yuluo-api-gateway-assist</artifactId>
 
 	<dependencies>
@@ -85,7 +87,7 @@
 		<!-- 引入网关通信组件 -->
 		<dependency>
 			<groupId>indi.yuluo.gateway</groupId>
-			<artifactId>yuluo-api-gateway-core-08</artifactId>
+			<artifactId>yuluo-api-gateway-core-09</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -160,6 +162,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- 避免打包的时候启动测试类 和 将 core-09 也打包进去，避免后期代码结构混乱 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
