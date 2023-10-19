@@ -2,9 +2,9 @@ package indi.yuluo.gateway.center.infrastructure.repository;
 
 import javax.annotation.Resource;
 
-import indi.yuluo.gateway.center.domain.register.model.vo.ApplicationInterfaceMethodVO;
-import indi.yuluo.gateway.center.domain.register.model.vo.ApplicationInterfaceVO;
-import indi.yuluo.gateway.center.domain.register.model.vo.ApplicationSystemVO;
+import indi.yuluo.gateway.center.domain.manage.model.vo.ApplicationInterfaceMethodVO;
+import indi.yuluo.gateway.center.domain.manage.model.vo.ApplicationInterfaceVO;
+import indi.yuluo.gateway.center.domain.manage.model.vo.ApplicationSystemVO;
 import indi.yuluo.gateway.center.domain.register.repository.IRegisterManageRepository;
 import indi.yuluo.gateway.center.infrastructure.dao.IApplicationInterfaceDao;
 import indi.yuluo.gateway.center.infrastructure.dao.IApplicationInterfaceMethodDao;

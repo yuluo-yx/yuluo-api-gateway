@@ -21,8 +21,6 @@ public interface IConfigManageRepository {
 
 	GatewayServerDetailVO queryGatewayServerDetail(String gatewayId, String gatewayAddress);
 
-	List<GatewayServerDetailVO> queryGatewayServerDetailList();
-
 	boolean updateGatewayStatus(String gatewayId, String gatewayAddress, Integer available);
 
 	List<String> queryGatewayDistributionSystemIdList(String gatewayId);
@@ -34,6 +32,5 @@ public interface IConfigManageRepository {
 	List<ApplicationInterfaceMethodVO> queryApplicationInterfaceMethodList(String systemId, String interfaceId);
 
 	String queryGatewayDistribution(String systemId);
-
 
 }

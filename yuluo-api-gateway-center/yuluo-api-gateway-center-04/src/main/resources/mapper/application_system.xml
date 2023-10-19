@@ -26,7 +26,7 @@
 		</foreach>
 	</select>
 
-<!--	<select id="queryApplicationSystemListByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultMap="applicationSystemMap">
+	<select id="queryApplicationSystemListByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultMap="applicationSystemMap">
 		SELECT id, system_id, system_name, system_type, system_registry
 		FROM application_system
 		<where>
@@ -39,9 +39,9 @@
 		</where>
 		order by id desc
 		limit #{pageStart},#{pageEnd}
-	</select>-->
+	</select>
 
-<!--	<select id="queryApplicationSystemListCountByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultType="java.lang.Integer">
+	<select id="queryApplicationSystemListCountByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultType="java.lang.Integer">
 		SELECT count(id) FROM application_system
 		<where>
 			<if test="data != null and data.systemId != ''">
@@ -51,6 +51,6 @@
 				and system_name = #{data.systemName}
 			</if>
 		</where>
-	</select>-->
+	</select>
 
 </mapper>

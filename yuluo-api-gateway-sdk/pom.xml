@@ -8,6 +8,7 @@
 		<artifactId>yuluo-api-gateway</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+	<packaging>pom</packaging>
 
 	<artifactId>yuluo-api-gateway-sdk</artifactId>
 
@@ -16,5 +17,10 @@
 		<maven.compiler.target>8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<modules>
+		<module>yuluo-api-gateway-sdk-00</module>
+		<module>yuluo-api-gateway-sdk-01</module>
+	</modules>
 
 </project>

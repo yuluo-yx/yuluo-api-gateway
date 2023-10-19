@@ -2,6 +2,8 @@ package indi.yuluo.gateway.center.infrastructure.dao;
 
 import java.util.List;
 
+import indi.yuluo.gateway.center.domain.operation.model.vo.GatewayServerDetaiDatalVO;
+import indi.yuluo.gateway.center.infrastructure.common.OperationRequest;
 import indi.yuluo.gateway.center.infrastructure.po.GatewayServerDetail;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,8 +19,10 @@ public interface IGatewayServerDetailDao {
 
 	GatewayServerDetail queryGatewayServerDetail(GatewayServerDetail gatewayServerDetail);
 
-	List<GatewayServerDetail> queryGatewayServerDetailList();
-
 	boolean updateGatewayStatus(GatewayServerDetail gatewayServerDetail);
+
+	List<GatewayServerDetail> queryGatewayServerDetailListByPage(OperationRequest<GatewayServerDetaiDatalVO> request);
+
+	int queryGatewayServerDetailListCountByPage(OperationRequest<GatewayServerDetaiDatalVO> request);
 
 }

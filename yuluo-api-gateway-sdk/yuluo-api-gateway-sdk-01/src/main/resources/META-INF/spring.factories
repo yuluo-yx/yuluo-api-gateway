@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  indi.yuluo.gateway.sdk.config.GatewaySDKAutoConfig

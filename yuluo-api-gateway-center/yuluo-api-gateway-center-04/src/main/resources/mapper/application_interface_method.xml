@@ -29,7 +29,7 @@
 		WHERE system_id = #{systemId} AND interface_id = #{interfaceId}
 	</select>
 
-<!--	<select id="queryApplicationInterfaceMethodListByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultMap="applicationInterfaceMethodMap">
+	<select id="queryApplicationInterfaceMethodListByPage" parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest" resultMap="applicationInterfaceMethodMap">
 		SELECT id, system_id, interface_id, method_id, method_name, parameter_type, uri, http_command_type, auth
 		FROM application_interface_method
 		<where>
@@ -43,9 +43,9 @@
 		</where>
 		order by id desc
 		limit #{pageStart},#{pageEnd}
-	</select>-->
+	</select>
 
-<!--	<select id="queryApplicationInterfaceMethodListCountByPage"
+	<select id="queryApplicationInterfaceMethodListCountByPage"
 			parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest"
 			resultType="java.lang.Integer">
 		SELECT count(id) FROM application_interface_method
@@ -57,5 +57,5 @@
 				and interface_id = #{data.interfaceId}
 			</if>
 		</where>
-	</select>-->
+	</select>
 </mapper>

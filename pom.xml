@@ -17,6 +17,7 @@
 		<module>yuluo-api-gateway-engine</module>
 		<module>yuluo-api-gateway-admin</module>
 		<module>yuluo-api-gateway-sdk</module>
+		<module>yuluo-api-gateway-sdk/yuluo-api-gateway-sdk-00</module>
 	</modules>
 
 	<properties>

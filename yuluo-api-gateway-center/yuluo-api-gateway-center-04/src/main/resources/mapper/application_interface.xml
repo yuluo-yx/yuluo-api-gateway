@@ -23,7 +23,7 @@
 		WHERE system_id = #{systemId}
 	</select>
 
-<!--	<select id="queryApplicationInterfaceListByPage"
+	<select id="queryApplicationInterfaceListByPage"
 			parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest"
 			resultMap="applicationInterfaceMap">
 		SELECT id, system_id, interface_id, interface_name, interface_version
@@ -38,9 +38,9 @@
 		</where>
 		order by id desc
 		limit #{pageStart},#{pageEnd}
-	</select>-->
+	</select>
 
-<!--	<select id="queryApplicationInterfaceListCountByPage"
+	<select id="queryApplicationInterfaceListCountByPage"
 			parameterType="indi.yuluo.gateway.center.infrastructure.common.OperationRequest"
 			resultType="java.lang.Integer">
 		SELECT count(id) FROM application_interface
@@ -52,7 +52,7 @@
 				and interface_id = #{data.interfaceId}
 			</if>
 		</where>
-	</select>-->
+	</select>
 
 
 </mapper>
